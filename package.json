@@ -1,0 +1,16 @@
+{
+  "name": "justscan",
+  "version": "1.0.0",
+  "description": "Scans pdf and output the searched text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stanislav Spatari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "pdf-extract": "^1.0.11",
+    "pdf2json": "^1.1.7"
+  }
+}
