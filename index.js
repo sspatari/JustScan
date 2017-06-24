@@ -3,7 +3,8 @@ const express = require('express'),
       config = require('./config'),
       fs = require('fs'),
       PDFParser = require("pdf2json")
-      extratInfo = require("./extractInfo")
+      extratInfo = require("./extractInfo"),
+      uploadImage = require("./uploadImage")
 
 let pdfParser = new PDFParser(this,1)
 
@@ -24,8 +25,12 @@ pdfParser.on("pdfParser_dataReady", pdfData => {
   extratInfo.createResultFile(textInfo)
 })
 
-pdfParser.loadPDF("./pdfFolder/lex.justice.pdf")
+// pdfParser.loadPDF("./pdfFolder/lex.justice.pdf")
 
+app.use('/api/v1/upload', uploadImage)
+app.get('/api/v1', (req, res)=> {
+  res.send('Salut')
+})
 
 app.listen(config.port, () => {
   console.log('Application is running on port ' + config.port)
